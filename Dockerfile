@@ -31,4 +31,4 @@ ENV PYTHONUNBUFFERED=1
 
 EXPOSE 5001
 
-CMD ["gunicorn", "--worker-class", "eventlet", "-w", "1", "-b", "0.0.0.0:5001", "app:app"]
+CMD gunicorn --worker-class eventlet -w 1 -b 0.0.0.0:${PORT:-5001} app:app
